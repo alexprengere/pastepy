@@ -38,7 +38,7 @@ More
 You can paste more than 2 files together!
 Indeed you can add other triplets of `<file> <delimiter> <key>`:
 ```bash
-$ python paste.py -h                                                                                                                               ~/Dev/pastepy 0 15:52:30
+$ python paste.py -h
 Usage:
   pastepy (<file> <delimiter> <key>)... [options]
   pastepy (-h | --help)

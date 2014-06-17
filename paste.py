@@ -5,8 +5,8 @@ Usage:
   pastepy --version
 
 Arguments
-  <file>       The file to be joined
-  <delimiter>  The delimiter for that file
+  <file>       The file to be pasted
+  <delimiter>  The line delimiter for that file
   <key>        The indices of the fields for the key, separated by ','
 
 Options:

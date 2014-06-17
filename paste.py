@@ -45,19 +45,16 @@ def main(files, delimiters, keys, output_delimiter, complete):
             data[file_] = dict(get(row, d, key) for row in f)
 
     # Processing the keys present in all files
-    common_keys = set.intersection(*[
-        set(d.iterkeys()) for d in data.itervalues()
-    ])
-    all_keys = set.union(*[
-        set(d.iterkeys()) for d in data.itervalues()
-    ])
+    if complete:
+        selected = set.union(*[set(d.iterkeys()) for d in data.values()])
+    else:
+        selected = set.intersection(*[set(d.iterkeys()) for d in data.values()])
 
-    for key in all_keys:
-        if complete or key in common_keys:
-            line = [','.join(key)]
-            for file_, d in zip(files, delimiters):
-                line.append(d.join(data[file_].get(key, '')))
-            print output_delimiter.join(line)
+    for key in selected:
+        line = [','.join(key)]
+        for file_, d in zip(files, delimiters):
+            line.append(d.join(data[file_].get(key, '')))
+        print output_delimiter.join(line)
 
 
 if __name__ == '__main__':

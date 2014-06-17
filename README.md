@@ -1,4 +1,5 @@
-# Pastepy
+pastepy
+=======
 
 This is kind of a pure Python `paste` implementation.
 
@@ -16,3 +17,4 @@ a,b;1;6
 d,c;;7
 a,c;2;
 ```
+

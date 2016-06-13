@@ -56,5 +56,3 @@ Options:
   -c, --complete           If paste is not possible, add empty strings.
 
 ```
-
-

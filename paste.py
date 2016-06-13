@@ -12,7 +12,7 @@ Arguments
 Options:
   -h --help                Show this screen.
   --version                Show version.
-  -d <d>, --delimiter <d>  Change delimiter for output [default: ,].
+  -d <d>, --delimiter <d>  Change delimiter for output [default: ;].
   -c, --complete           If paste is not possible, add empty strings.
 """
 
@@ -58,15 +58,12 @@ def main(files, delimiters, keys, output_delimiter, complete):
 
 
 if __name__ == '__main__':
-
     kw = docopt(__doc__, version='Pastepy 0.1')
 
     main(**{
-        'files'             : kw['<file>'],
-        'delimiters'        : kw['<delimiter>'],
-        'keys'              : [[int(i) for i in k.split(',')]
-                                for k in kw['<key>']],
-        'output_delimiter'  : kw['--delimiter'],
-        'complete'          : kw['--complete'],
+        'files'           : kw['<file>'],
+        'delimiters'      : kw['<delimiter>'],
+        'keys'            : [[int(i) for i in k.split(',')] for k in kw['<key>']],
+        'output_delimiter': kw['--delimiter'],
+        'complete'        : kw['--complete'],
     })
-
